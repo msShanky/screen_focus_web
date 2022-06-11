@@ -62,9 +62,7 @@ const Home: NextPage = () => {
 			<AnimatePresence>
 				<MotionGrid initial="hidden" animate="visible" variants={list} className="mt-20 select-none justify-evenly">
 					{pageLinks.map((page) => {
-						const key = page.text;
-						const target = page.link.includes("http") ? "_blank" : "_self";
-						console.log("THE TARGET IS", target);
+						const key = page.text;						
 						return (
 							<Link key={key} href={page.link} passHref>
 								<MotionCol

@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import React from "react";
-import Footer from "./common/Footer";
+import AppFooter from "./common/AppFooter";
+import AppHeader from "./common/AppHeader";
 import { Container } from "@mantine/core";
 
 type LayoutProps = {
@@ -10,8 +11,9 @@ type LayoutProps = {
 const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 	return (
 		<Container className="container">
-			<main className="mb-20">{children}</main>
-			<Footer />
+			<AppHeader />
+			<main className="mb-20 p-4">{children}</main>
+			<AppFooter />
 		</Container>
 	);
 };

@@ -7,7 +7,6 @@ type LandingLinkCardProps = {
 };
 
 const LandingLinkCard: FunctionComponent<LandingLinkCardProps> = ({ link }) => {
-	console.log("the received value for the landing link", link);
 	return (
 		<Link target={link.isExternal ? "_blank" : "_self"} href={link.link} passHref>
 			<div className="h-auto hover:cursor-pointer hover:w-80 w-36 bg-primary rounded-3xl bg-[url('/images/flmaker-5110278_1920.jpg')]">

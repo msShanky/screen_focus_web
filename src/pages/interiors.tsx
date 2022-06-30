@@ -6,7 +6,6 @@ const Interiors = () => {
 	const [activeTab, setActiveTab] = useState(0);
 	const onChange = (active: number, tabKey: string) => {
 		setActiveTab(active);
-		console.log("tabKey", tabKey);
 	};
 
 	return (

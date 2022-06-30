@@ -2,11 +2,6 @@ import { Card, Image, Text, Title, useMantineColorScheme } from "@mantine/core";
 import React from "react";
 import { products } from "../helpers/camera";
 
-const sampleProduct: Product = {
-  name: "Red Helium 8K",
-  image: "https://muvimedia.in/wp-content/uploads/2022/02/red-weapon-8k.jpg",
-  price: 8000,
-};
 
 const ProductCard = (props: { product: Product; isDark: boolean }) => {
   const { image, name,} = props.product;
@@ -27,9 +22,6 @@ const ProductCard = (props: { product: Product; isDark: boolean }) => {
   );
 };
 
-const dummyProducts = (): Array<Product> => {
-  return Array(30).fill(sampleProduct);
-};
 
 const CameraRental = () => {
   const { colorScheme } = useMantineColorScheme();

@@ -19,32 +19,6 @@ const ServiceCard = ({ service }: { service: PostProductionService }) => {
 	);
 };
 
-const services: Array<Service> = [
-  {
-    name: "DI - 2k, 4k, HDR &  Dolby Vision",
-    image: "/images/post_production_hub/di_suite.jpeg",
-  },
-  {
-    name: "Rerecording",
-    image: "/images/post_production_hub/recording.jpeg",
-  },
-  {
-    name: "Multi Language Dubbing Service",
-    image: "/images/post_production_hub/dubbing.jpeg",
-  },
-  {
-    name: "Sound Mix & Mastering - Stereo",
-    image: "/images/post_production_hub/mix_mastering.jpeg",
-  },
-  {
-    name: "VFX & Animation",
-    image: "/images/post_production_hub/vfx_&_animation.jpeg",
-  },
-  {
-    name: "Edit - FCP, Adobe Premier",
-    image: "/images/post_production_hub/edit_suite.jpeg",
-  },
-];
 
 const PostProduction = () => {
 	return (

@@ -1,27 +1,111 @@
-import { Image, List, Text, Title, useMantineColorScheme } from "@mantine/core";
-import React from "react";
+import { Image, Tabs, Text, Title } from "@mantine/core";
+import React, { useState } from "react";
 import { InteriorServiceCard } from "../components/InteriorServiceCard";
 
 const Interiors = () => {
-	const { colorScheme } = useMantineColorScheme();
+	const [activeTab, setActiveTab] = useState(0);
+	const onChange = (active: number, tabKey: string) => {
+		setActiveTab(active);
+		console.log("tabKey", tabKey);
+	};
 
 	return (
-		<>
-			<Image
-				radius="lg"
-				height={350}
-				alt="Post production image"
-				src="/images/alexander-lemann-qc-kiqPzoy8-unsplash.jpg"
-			></Image>
-			<Title className={`my-8`} order={1}>
+		<main className="container flex flex-col items-center justify-center mx-auto">
+			<div className="absolute inset-0 bg-gradient-to-b from-secondary to-primary bg-[length:100%_100%] h-[614px] bg-no-repeat bg-top z-0"></div>
+			<div className="z-10 flex flex-col items-center mt-8">
+				<Title className="text-5xl font-bold text-white">Screenfocus Home Theater &amp; Studio Interiors</Title>
+				<Text className="w-10/12 mt-10 text-3xl font-light text-center text-white">
+					We offer insights to your life with our creative home theater &amp; studio solutions
+				</Text>
+			</div>
+			<section className="container z-10 flex flex-row justify-center mt-24 space-x-10">
+				<Image
+					radius="lg"
+					width={398}
+					height={613}
+					alt="Post production image"
+					src="/images/pexels-yan-krukov-9069365.jpg"
+				/>
+				<Image
+					radius="lg"
+					width={398}
+					height={613}
+					alt="Post production image"
+					src="/images/blvck-paris-ckBxIZmpXJE-unsplash.jpg"
+				/>
+				<Image
+					radius="lg"
+					width={398}
+					height={613}
+					alt="Post production image"
+					src="/images/pexels-roberto-nickson-3131971.jpg"
+				/>
+			</section>
+			<section className="container mx-auto mt-12 space-y-10">
+				<Text className="text-xl text-dark">
+					Screenfocus, one of the top home theater companies in Chennai, is a precipitate of two Instrumentation
+					Engineers having experience in various fields of theater &amp; studios for more than 15 years. We have a team
+					of creative, young, pro-active and talented Engineers, geared to offer comprehensive, extremely smart and
+					fully customized solutions. We strive to get into your own world of imagination and thought process to deliver
+					more than what a dream house or work space would look like. Keeping ourselves abreast with the latest
+					technologies, which enables us to offer indubitable and impeccable solutions that transforms your home or your
+					work space to a smart one. Furthermore, no matter in which corner of the world you are in, your home or your
+					work space will remain safe, secured..!! Our systems transform your normal life style into a smart one. A
+					Transformation that enhances your life, a transformation that provides added luxury.
+				</Text>
+				<Text className="text-xl text-dark">
+					At Screenfocus, we strive to set benchmarks in the way films are created, marketed, and consumed. We are
+					especially cognizant of the need for on-demand content via. digital platforms and have strategically leveraged
+					streaming services for film and music distribution. Today, Screenfocus Productions has become one of the most
+					sought-after production houses in the country having worked with numerous industry stalwarts
+				</Text>
+			</section>
+			<section className="container flex flex-col items-center mx-auto mt-12 space-y-10">
+				<div>
+					<Title className="text-5xl text-dark" order={3}>
+						Services
+					</Title>
+					<div className="w-48 h-2 mt-4 translate-x-10 bg-secondary rounded-3xl"></div>
+				</div>
+				<div className="w-full">
+					<Tabs
+						classNames={{
+							root: "",
+							tabControl: "",
+							tabActive: "text-secondary border-b-secondary border-b-2",
+							tabsList: "space-x-20",
+							tabsListWrapper: "border-none",
+							tabLabel: "text-xl text-dark",
+							tabInner: "text-red-300",
+						}}
+						color="primary"
+						active={activeTab}
+						onTabChange={onChange}
+					>
+						<Tabs.Tab label="Acoustics" tabKey="0">
+							<InteriorServiceCard activeKey={activeTab} />
+						</Tabs.Tab>
+						<Tabs.Tab label="Projector Installation" tabKey="1">
+							<InteriorServiceCard activeKey={activeTab} />
+						</Tabs.Tab>
+						<Tabs.Tab label="Outdoor Audio Installation" tabKey="2">
+							<InteriorServiceCard activeKey={activeTab} />
+						</Tabs.Tab>
+						<Tabs.Tab label="Outdoor Audio Installation" tabKey="3">
+							<InteriorServiceCard activeKey={activeTab} />
+						</Tabs.Tab>
+					</Tabs>
+				</div>
+			</section>
+			{/* <Title className={`my-8`} order={1}>
 				Screenfocus home theater & studio interiors
 			</Title>
 			<section className="prose-xl">
 				<Title order={2}>About:</Title>
-				<Text className="text-2xl mt-6">
+				<Text className="mt-6 text-2xl">
 					WE OFFER BETTER INSIGHTS TO YOUR LIFE WITH OUR CREATIVE HOME THEATER & STUDIO SOLUTIONS
 				</Text>
-				<Text className="text-base mt-6">
+				<Text className="mt-6 text-base">
 					Screenfocus, one of the top home theater companies in Chennai, is a precipitate of two Instrumentation
 					Engineers having experience in various fields of theater & studios for more than 15 years. We have a team of
 					creative, young, pro-active and talented Engineers, geared to offer comprehensive, extremely smart and fully
@@ -32,7 +116,7 @@ const Interiors = () => {
 					remain safe, secured..!! Our systems transform your normal life style into a smart one. A Transformation that
 					enhances your life, a transformation that provides added luxury.
 				</Text>
-				<Text className="text-base mt-6">
+				<Text className="mt-6 text-base">
 					At Screenfocus, we strive to set benchmarks in the way films are created, marketed, and consumed. We are
 					especially cognizant of the need for on-demand content via. digital platforms and have strategically leveraged
 					streaming services for film and music distribution. Today, Screenfocus Productions has become one of the most
@@ -43,8 +127,8 @@ const Interiors = () => {
 				<Title className="text-lg" order={2}>
 					Our Services:
 				</Title>
-				<Text className="text-2xl mt-6">CAPTIVATE ALL OF YOUR SENSES</Text>
-				<Text className="text-base mt-6">
+				<Text className="mt-6 text-2xl">CAPTIVATE ALL OF YOUR SENSES</Text>
+				<Text className="mt-6 text-base">
 					The magic of a truly riveting home theatre is a combination of sight and sound so realistic that you feel
 					embodied in the film. Added to a massive screen and projector, Control4 and Triad Audio solutions make your
 					home theatre experience far superior than going out to see a movie. With one touch, fire up your Dolby Atmos
@@ -61,7 +145,7 @@ const Interiors = () => {
 				</Text>
 			</section>
 			<section className="mt-8 prose-xl">
-				<Text className="text-2xl mt-6">
+				<Text className="mt-6 text-2xl">
 					Each element is thought over carefully to ensure that you get precisely the best experience you want, be it a
 					casual family home theatre or a professional screening room
 				</Text>
@@ -96,7 +180,7 @@ Accurate, efficient, eco-friendly, affordable and professional design are just s
 				/>
 			</section>
 			<section className="mt-8 prose-xl">
-				<Text className="text-2xl mt-6">
+				<Text className="mt-6 text-2xl">
 					For an out-of-body experience that encompasses the whole house, we cater to:
 				</Text>
 				<List className="list-disc">
@@ -108,12 +192,12 @@ Accurate, efficient, eco-friendly, affordable and professional design are just s
 					<List.Item>Aesthetics are our forte</List.Item>
 				</List>
 
-				<Text className="text-xl font-extralight mt-6">
+				<Text className="mt-6 text-xl font-extralight">
 					When we are done with the installation, not a single naked wire or cable will be visible. We tuck away every
 					little cord to bring beauty to your home
 				</Text>
-			</section>
-		</>
+			</section> */}
+		</main>
 	);
 };
 

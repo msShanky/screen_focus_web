@@ -1,35 +1,22 @@
 import React from "react";
-import {
-  Image,
-  Paper,
-  Text,
-  Title,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { Image, Text, Title, useMantineColorScheme } from "@mantine/core";
 
-const ServiceCard = ({ service }: { service: Service }) => {
-  return (
-    <Paper
-      shadow="md"
-      p="xl"
-      radius="md"
-      className={'h-96 w-64 flex flex-col relative justify-between items-start bg-cover bg-center'}
-    >
-      <div className="z-10">
-        <Text className="text-white text-lg font-semibold" size="xs">
-          Service
-        </Text>
-        <Image
-          src={service.image}
-          alt="Service"
-        />
-        <Title className="text-white text-2xl font-bold" order={3}>
-          {service.name}
-        </Title>
-      </div>
-      <div className="w-full h-full bg-slate-700 opacity-60 absolute inset-0 rounded-lg z-0"></div>
-    </Paper>
-  );
+const services: Array<PostProductionService> = [
+	{ label: "DI - 2k, 4k, HDR &  Dolby Vision", image: "/images/jose-leon-6rdPada3jk4-unsplash.jpg" },
+	{ label: "Re-recording", image: "/images/pexels-brett-sayles-3990842.jpg" },
+	{ label: "Multi Language Dubbing Service", image: "/images/pexels-antoni-shkraba-production-8412288.jpg" },
+	{ label: "Sound Mix & Mastering - Stereo,  5.1 & 7.1", image: "/images/pexels-dmitry-demidov-3784221.jpg" },
+	{ label: "VFX & Animation", image: "/images/pexels-cottonbro-4629627.jpg" },
+	{ label: "Edit - FCP, Adobe Premier", image: "/images/matthew-kwong-qJgW5ewKCO8-unsplash.jpg" },
+];
+
+const ServiceCard = ({ service }: { service: PostProductionService }) => {
+	return (
+		<div className="flex flex-row items-start space-x-6">
+			<Image radius={"lg"} width={"200px"} height={"252px"} src={service.image} alt={service.label} />
+			<Text className="text-3xl font-bold w-60">{service.label}</Text>
+		</div>
+	);
 };
 
 const services: Array<Service> = [
@@ -60,57 +47,48 @@ const services: Array<Service> = [
 ];
 
 const PostProduction = () => {
-  const { colorScheme } = useMantineColorScheme();
+	return (
+		<section className="container mx-auto mt-12">
+			<div className="flex flex-row justify-between space-x-4 bg-gradient-to-b from-secondary to-primary bg-[length:100%_210px] bg-no-repeat bg-bottom rounded-lg">
+				{/* <div className="absolute bottom-0 w-full h-52 bg"></div> */}
+				<div className="flex flex-col w-6/12 h-auto space-y-8">
+					<Title className="text=dark font-bold text-5xl">Screenfocus Post Production Hub</Title>
+					<Text className="text-xl">
+						Powered by state-of-the-art equipment and technology, ScreenFocus post production hub conceptualizes and
+						develops pristine sound, color grading, and stunning life like visual effects for clients across India &amp;
+						Overseas.
+					</Text>
+					<Text className="text-xl">
+						We will take care of the complete post production needs of films of any budget. Your one stop destination
+						for a straight from studio to theater experience.
+					</Text>
+				</div>
+				<div className="w-5/12">
+					<Image
+						radius={"md"}
+						width={884}
+						height={598}
+						alt="Post production image"
+						src="/images/pexels-cinedirektor-films-3928528.png"
+					></Image>
+				</div>
+			</div>
 
-  const isDark = colorScheme === "dark";
-
-  //   const services = [
-  //     "DI - 2k, 4k, HDR &  Dolby Vision",
-  //     "Rerecording",
-  //     "Multi Language Dubbing Service",
-  //     "Sound Mix & Mastering - Stereo,  5.1 & 7.1",
-  //     "VFX & Animation",
-  //     "Edit - FCP, Adobe Premier",
-  //   ];
-
-  return (
-    <>
-      <Image
-        radius="lg"
-        height={350}
-        alt="Post production image"
-        src="/images/editing-g4f086fbd5_1920.jpg"
-      ></Image>
-      <Title
-        className={`${isDark ? "text-white" : "text-black"} my-8`}
-        order={1}
-      >
-        Screenfocus Post Production Hub
-      </Title>
-      <section className="">
-        <Title className="text-white text-lg" order={3}>
-          Powered by state-of-the-art equipment and technology, Screenfocus post
-          production hub conceptualizes and develops pristine sound, color
-          grading, and stunning life like visual effects for clients across
-          India & Overseas.
-        </Title>
-        <Text className="text-white text-base mt-6">
-          We will take care of the complete post production needs of films of
-          any budget. Your one stop destination for a straight from studio to
-          theater experience.
-        </Text>
-
-        <div className="flex flex-row flex-wrap gap-6 mt-12">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={`KEY_SERVICE_${index + 1}_${service}`}
-              service={service}
-            />
-          ))}
-        </div>
-      </section>
-    </>
-  );
+			<section className="flex flex-col items-center mt-12">
+				<div>
+					<Title className="text-5xl text-dark" order={3}>
+						Services
+					</Title>
+					<div className="w-48 h-2 mt-4 translate-x-10 bg-secondary rounded-3xl"></div>
+				</div>
+				<div className="flex flex-wrap w-full gap-8 mt-12">
+					{services.map((service, index) => (
+						<ServiceCard key={`KEY_SERVICE_${index + 1}_${service}`} service={service} />
+					))}
+				</div>
+			</section>
+		</section>
+	);
 };
 
 export default PostProduction;

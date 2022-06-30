@@ -10,11 +10,11 @@ type LayoutProps = {
 
 const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 	return (
-		<Container className="container">
+		<>
 			<AppHeader />
-			<main className="mb-20 p-4">{children}</main>
+			<main className="relative p-4 mb-20">{children}</main>
 			<AppFooter />
-		</Container>
+		</>
 	);
 };
 

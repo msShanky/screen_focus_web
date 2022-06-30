@@ -1,6 +1,5 @@
 import { Card, Image, Text, Title, useMantineColorScheme } from "@mantine/core";
 import React from "react";
-import { CurrencyRupee } from "tabler-icons-react";
 import { products } from "../helpers/camera";
 
 const sampleProduct: Product = {
@@ -10,7 +9,7 @@ const sampleProduct: Product = {
 };
 
 const ProductCard = (props: { product: Product; isDark: boolean }) => {
-  const { image, name, price } = props.product;
+  const { image, name,} = props.product;
   return (
     <Card
       className={`w-96 h-96 shadow-xl ${
@@ -37,50 +36,29 @@ const CameraRental = () => {
 
   const isDark = colorScheme === "dark";
 
-  return (
-    <>
-      <Image
-        radius="lg"
-        height={350}
-        alt="Post production image"
-        src="/images/jakob-owens-FKyHyNowp-4-unsplash.jpg"
-      ></Image>
-      <Title
-        className={`${isDark ? "text-white" : "text-black"} my-8`}
-        order={1}
-      >
-        Screenfocus Camera Rental
-      </Title>
-      <section className="">
-        <Title
-          className={` text-lg ${isDark ? "text-white" : "text-black"}`}
-          order={3}
-        >
-          Powered by state-of-the-art equipment and technology, Screenfocus post
-          production hub conceptualizes and develops pristine sound, color
-          grading, and stunning life like visual effects for clients across
-          India & Overseas.
-        </Title>
-        <Text
-          className={`text-base mt-6 ${isDark ? "text-white" : "text-black"}`}
-        >
-          We will take care of the complete post production needs of films of
-          any budget. Your one stop destination for a straight from studio to
-          theater experience.
-        </Text>
-
-        <div className="flex flex-wrap items-start gap-8 justify-center mt-16">
-          {products.map((product, index) => (
+	return (
+		<section className="container mx-auto mt-12">
+			<Title className="text-5xl text-center text-dark" order={1}>
+				Powerful Gears For Rent
+			</Title>
+			<Text className="mt-8 text-2xl text-center text-dark">
+				Powered by state-of-the-art equipment and technology, Screenfocus post production hub conceptualizes and
+				develops pristine sound, color grading, and stunning life like visual effects for clients across India &amp;
+				Overseas.
+			</Text>
+			<section className="p-8 mt-12 bg-white shadow-xl shadow-primary/20 rounded-2xl ">
+				<div className="flex flex-wrap items-start justify-center gap-8 mt-16">
+        {products.map((product, index) => (
             <ProductCard
               isDark={isDark}
               key={`PRODUCT_CARD_${index + 1}_${product.name} `}
               product={product}
             />
           ))}
-        </div>
-      </section>
-    </>
-  );
+				</div>
+			</section>
+		</section>
+	);
 };
 
 export default CameraRental;

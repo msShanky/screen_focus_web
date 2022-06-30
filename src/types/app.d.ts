@@ -1,10 +1,11 @@
-type Product = {
-  name: string;
-  image: string;
-  price?: number;
+type LandingLink = {
+	link: string;
+	label: string;
+	isExternal?: boolean;
+	background: string;
 };
 
-type Service = {
-  name: string;
-  image: string;
+type PostProductionService = {
+	label: string;
+	image: string;
 };

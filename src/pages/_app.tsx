@@ -3,13 +3,13 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import Layout from "../components/Layout";
-import { useHotkeys, useLocalStorage } from "@mantine/hooks";
+import { useLocalStorage } from "@mantine/hooks";
 
 export default function App(props: AppProps) {
 	const { Component, pageProps } = props;
 	const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
 		key: "mantine-color-scheme",
-		defaultValue: "dark",
+		defaultValue: "light",
 		getInitialValueInEffect: true,
 	});
 

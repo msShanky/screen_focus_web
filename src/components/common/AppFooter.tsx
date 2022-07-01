@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button, Text } from "@mantine/core";
+import { Image, Text } from "@mantine/core";
 
 const footerLinks = [
 	{
@@ -31,15 +31,21 @@ const footerLinks = [
 
 const AppFooter = () => {
 	return (
-		<div className="flex flex-row justify-center space-x-4 mb-20">
-			{footerLinks.map((link) => {
-				const key = link.label;
-				return (
-					<Link key={key} href={link.link} passHref>
-						<Text className="hover:text-blue-400 cursor-pointer select-none">{link.label}</Text>
-					</Link>
-				);
-			})}
+		<div className="container flex flex-row justify-between px-4 mx-auto">
+			<div className="flex flex-row">
+				<Image width={57} height={57} src="/images/icons/Mobile.png" alt="Phone" />
+				<Text className="mt-4 text-xl font-bold text-dark">+91 89395 93999</Text>
+			</div>
+			<div className="flex flex-row justify-center mb-20 space-x-4">
+				{footerLinks.map((link) => {
+					const key = link.label;
+					return (
+						<Link key={key} href={link.link} passHref>
+							<Text className="text-xl cursor-pointer select-none hover:text-primary text-dark">{link.label}</Text>
+						</Link>
+					);
+				})}
+			</div>
 		</div>
 	);
 };

@@ -90,7 +90,7 @@ const Interiors = () => {
 						<Tabs.Tab label="Outdoor Audio Installation" tabKey="2">
 							<InteriorServiceCard activeKey={activeTab} />
 						</Tabs.Tab>
-						<Tabs.Tab label="Outdoor Audio Installation" tabKey="3">
+						<Tabs.Tab label="Home Audio &amp; Video Installation" tabKey="3">
 							<InteriorServiceCard activeKey={activeTab} />
 						</Tabs.Tab>
 					</Tabs>

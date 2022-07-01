@@ -29,15 +29,15 @@ const pageLinks = [
 const AppHeader = () => {
 	return (
 		<header className="container flex flex-row items-center justify-between p-4 mx-auto">
-			<div className="flex flex-row items-center space-x-4">
+			<div className="flex flex-row items-center space-x-4 ">
 				<Link href="/" passHref>
-					<div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary">
+					<div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary hover:cursor-pointer">
 						<Image width={50} alt="screen focus logo" src="/logo.svg"></Image>
 					</div>
 				</Link>
 				<Title className="font-sans text-2xl text-dark">Screen Focus</Title>
 			</div>
-			<div className="flex flex-row space-x-4">
+			<div className="flex flex-row space-x-10">
 				{pageLinks.map(({ link, text }) => {
 					const uniqueKey = `${link}-${text}-LinkText`;
 					return (
